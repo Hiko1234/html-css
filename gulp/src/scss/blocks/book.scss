@@ -80,7 +80,10 @@
     &__radio {
         @include flex(row, center, center);
         gap: 10px;
-        cursor: pointer;
+       
+        &>*{
+            cursor: pointer;
+        }
 
         &>input {
             display: none;
