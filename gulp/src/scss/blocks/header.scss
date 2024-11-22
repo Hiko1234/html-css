@@ -1,0 +1,105 @@
+.header {
+    position: fixed;
+    z-index: 1000;
+    top: 50px;
+    left: 50px;
+    width: calc(100% - 100px);
+    padding: 50px;
+    
+    @include flex(row, space-between, center);
+    @include transition(0.3s);
+
+    @media(max-width: $mp4){
+        width: calc(100% - 32px);
+        top: 16px;
+        left: 16px;
+        padding: 16px;
+    }
+
+    &.scroll {
+        top: 0;
+    }
+
+    &__logo {
+        &>svg {
+            filter: drop-shadow($shadow);
+            fill: $light;
+            @include transition(0.3s);
+        }
+    }
+
+    &__burger-btn {
+        @include flex(row, center, center);
+
+        width: 70px;
+        height: 70px;
+        background-color: $light;
+        border-radius: 50%;
+        box-shadow: $shadow;
+
+        &.active {
+            &>div {
+                transform: rotate(315deg);
+
+                &>span:nth-child(1) {
+                    width: 100%;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    transition-delay: 0s;
+                }
+
+                &>span:nth-child(2) {
+                    transform: translate(0, -50%) scale(0);
+                    opacity: 0;
+                    transition-delay: 0s;
+                }
+
+                &>span:nth-child(3) {
+                    width: 100%;
+                    bottom: 50%;
+                    transform: rotate(90deg);
+                    transition-delay: 0s;
+                }
+            }
+        }
+
+        &>div {
+            position: relative;
+
+            width: 30px;
+            height: 20px;
+
+            transform: rotate(0);
+            transition: 1s;
+
+            &>span {
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 2px;
+                box-sizing: border-box;
+                background-color: $dark;
+                @include transition(0.3s);
+                transition-delay: 1s;
+            }
+
+            &>span:nth-child(1) {
+                top: 0;
+                left: 0;
+            }
+
+            &>span:nth-child(2) {
+                top: 50%;
+                left: 0;
+                transform: translate(0, -50%) scale(1);
+                opacity: 1;
+            }
+
+            &>span:nth-child(3) {
+                bottom: 0;
+                right: 0;
+                transform: rotate(0);
+            }
+        }
+    }
+}

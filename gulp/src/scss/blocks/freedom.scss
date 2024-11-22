@@ -1,0 +1,109 @@
+.freedom {
+    padding: 80px 0;
+
+    @media(max-width: $mp3) {
+        padding: 32px 0;
+    }
+
+
+    @media(max-width: $mp4) {
+        padding: 16px 0;
+    }
+
+    &__body {
+
+        &>.title-secondary {
+            margin-bottom: 80px;
+
+            @media(max-width: $mp3) {
+                margin-bottom: 32px;
+            }
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: auto 580px;
+        gap: 40px;
+
+        @media(max-width: $mp1) {
+            grid-template-columns: 100%;
+        }
+    }
+
+    &__info {
+
+        &>h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+            letter-spacing: 2px;
+
+            &:not(:last-child) {
+                padding-bottom: 10px;
+            }
+        }
+
+        &>p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22.5px;
+            letter-spacing: 2px;
+
+            &:not(:last-child) {
+                padding-bottom: 30px;
+            }
+        }
+    }
+
+    &__images {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        @media(max-width: $mp1) {
+            max-width: 580px;
+            height: 380px;
+            margin: 0 auto;
+        }
+
+        &>img {
+            position: absolute;
+
+            width: 318px;
+            height: 200px;
+
+            border-radius: 5px;
+
+            object-fit: contain;
+            object-position: center center;
+
+            @include transition(0.3s);
+
+            &:hover {
+                transform: scale(1.05);
+                z-index: 4;
+            }
+
+            &:nth-child(1) {
+                top: 0;
+                left: 0;
+            }
+
+            &:nth-child(2) {
+                top: 88px;
+                right: 0;
+            }
+
+            &:nth-child(3) {
+                top: 180px;
+                left: 20px;
+            }
+        }
+    }
+}

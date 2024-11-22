@@ -1,0 +1,91 @@
+.burger-menu {
+    @include flex(column, center, center);
+
+    position: fixed;
+    z-index: 999;
+    top: 135px;
+    right: 135px;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+
+    overflow-y: auto;
+    padding: 50px 0;
+    box-sizing: border-box;
+
+    background-color: $secondary;
+    border-radius: 50%;
+    transform-origin: top right;
+    transform: scale(0);
+    @include transition(0.7s);
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    &.scroll {
+        top: 85px;
+
+        @media(max-width: $mp4) {
+            top: 51px;
+        }
+    }
+
+    &.active {
+        top: 0;
+        right: 0;
+        transform: scale(1);
+        border-radius: 0;
+    }
+
+    @media(max-width: $mp4) {
+        top: 67px;
+        right: 67px;
+    }
+
+    &>ul {
+        @include flex(column, center, center);
+        gap: 50px;
+
+        @media(max-width: $mp4){
+            gap: 25px;
+        }
+
+        &>li {
+            &>a {
+                position: relative;
+
+                font-size: 40px;
+                font-weight: 300;
+                font-family: "Inter", sans-serif;
+                line-height: 48px;
+                letter-spacing: 5px;
+                color: $light;
+
+                background: linear-gradient(120deg, transparent 0%, transparent 50%, $light 50%);
+                background-size: 220%;
+
+                display: inline-block;
+                padding: 16px 32px;
+
+                @include transition(0.3s);
+
+                @media(any-hover: hover) {
+                    &:hover {
+                        color: $secondary;
+                        background-position: 100%;
+                    }
+                }
+
+                @media(max-width: $mp4){
+                    font-size: 20px;
+                    line-height: 28px;
+                    padding: 8px 16px;
+                }
+            }
+        }
+    }
+}

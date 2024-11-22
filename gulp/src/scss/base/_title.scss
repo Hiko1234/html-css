@@ -1,0 +1,45 @@
+.title-secondary {
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 43.2px;
+    letter-spacing: 10px;
+    @include text-gradient(linear-gradient(90deg, $primary 3.65%, $secondary 100%));
+    @include transition(0.3s);
+
+    @media(any-hover: hover) {
+        &:hover {
+            transform: skewY(2deg) skewX(15deg) scale(1.1)
+        }
+    }
+
+    @media(max-width: $mp1) {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    @media(max-width: $mp3) {
+        font-size: 24px;
+        line-height: 30px;
+    }
+}
+
+.title-main {
+    font-size: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 60px;
+    letter-spacing: 10px;
+    color: $light;
+
+    @media(max-width: $mp1) {
+        font-size: 36px;
+        line-height: 43.2px;
+    }
+
+    @media(max-width: $mp3) {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}

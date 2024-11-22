@@ -1,0 +1,88 @@
+.adventure {
+    padding: 215px 0;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+
+    @media(max-width: $mp4) {
+        clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
+        padding: 150px 0;
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 60px;
+
+        @media(max-width: $mp1) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        @media(max-width: $mp4) {
+            gap: 16px;
+        }
+
+        @media(max-width: $mp5) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        &.scroll-effect {
+
+            .adventure__card {
+                opacity: 1;
+                transform: translateY(0);
+
+                @media(any-hover: hover) {
+                    &:hover {
+                        transform: translateY(-15px);
+                        @include transition(0.3s);
+                        transition-delay: 0s;
+                    }
+                }
+            }
+        }
+    }
+
+    &__card {
+        @include flex(column, center, center);
+        gap: 10px;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 25px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        background-color: $light;
+
+        text-align: center;
+        color: $text;
+
+        opacity: 0;
+        transform: translateY(-30px);
+        @include transition(1s);
+        transition-delay: calc(var(--i) * 0.3s);
+
+        @media(max-width: $mp4) {
+            padding: 15px;
+        }
+
+        &>svg {
+            padding-bottom: 15px;
+        }
+
+        &>h4 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        &>p {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}
