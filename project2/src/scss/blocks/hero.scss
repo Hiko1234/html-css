@@ -83,6 +83,10 @@
 
         background-color: $secondary;
 
+        @media(max-width: $mp4){
+            gap: 16px;
+        }
+
         &>.title-small {
             width: 100%;
             text-align: center;

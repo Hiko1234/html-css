@@ -1,0 +1,47 @@
+.advantages{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    column-gap: 40px;
+    row-gap: 30px;
+    padding: 11% 7.25%;
+
+    @media(max-width: $mp5){
+        grid-template-columns: 100%;
+    }
+}
+
+.advantages-card{
+    width: 100%;
+    @include flex(row, flex-start, flex-start);
+    gap: 25px;
+
+    @media(max-width: $mp5){
+        gap: 15px;
+    }
+
+    &>img{
+        width: clamp(45px, 45px, 45px);
+        height: 45px;
+
+        object-fit: contain;
+        object-position: left center;
+    }
+
+    &__info{
+        @include flex(column, flex-start, flex-start);
+        gap: 15px;
+
+        @media(max-width: $mp5){
+            gap: 5px;
+        }
+
+        &>*{
+            color: $dark-primary;
+        }
+
+        &>p{
+           font-size: 16px;
+           font-weight: 400;
+        }
+    }
+}
