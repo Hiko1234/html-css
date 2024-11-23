@@ -1,0 +1,132 @@
+.hero {
+    display: grid;
+    grid-template-columns: auto 390px;
+    min-height: 700px;
+
+    @media(max-width: $mp3) {
+        grid-template-columns: 100%;
+    }
+
+    &>* {
+        padding: 50px;
+        box-sizing: border-box;
+
+        @media(max-width: $mp4) {
+            padding: 32px;
+        }
+
+        @media(max-width: $mp4) {
+            padding: 16px;
+        }
+    }
+
+    &__logo {
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    &__main {
+        @include flex(column, space-between, flex-start);
+        gap: 32px;
+
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @media(max-width: $mp3) {
+            min-height: 100vh;
+        }
+
+        @media(max-width: $mp5) {
+            min-height: calc(100vh - 72px);
+        }
+
+        &_info {
+            width: 100%;
+
+            &>.btn {
+                margin-top: 30px;
+            }
+        }
+
+        &_footer {
+            width: 100%;
+
+            &>h5 {
+                display: grid;
+                grid-template-columns: 1fr max-content 1fr;
+                column-gap: 20px;
+                align-items: center;
+                padding-bottom: 10px;
+
+                &::before,
+                &::after {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    background-color: $text;
+                }
+            }
+        }
+    }
+
+    &__partners {
+        @include flex(row, center, center);
+        column-gap: 100px;
+        row-gap: 16px;
+        flex-wrap: wrap
+    }
+
+    &__players {
+        @include flex(column, center, flex-start);
+        gap: 35px;
+
+        background-color: $secondary;
+
+        &>.title-small {
+            width: 100%;
+            text-align: center;
+        }
+
+        &_wrapper {
+            @include flex(column, flex-start, flex-start);
+            gap: 40px;
+            width: 100%;
+
+            @media(max-width: $mp3) {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 16px;
+            }
+        }
+    }
+
+    &__player {
+        @include flex(row, flex-start, center);
+        column-gap: 20px;
+        row-gap: 10px;
+
+        width: 100%;
+
+        &>img {
+            width: clamp(105px, 105px, 105px);
+            height: 105px;
+            border-radius: 50%;
+
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        &>div {
+            &>.title-small {
+                color: $light;
+            }
+
+            &>p {
+                font-size: 16px;
+                font-weight: 300;
+                color: $text;
+            }
+        }
+    }
+}

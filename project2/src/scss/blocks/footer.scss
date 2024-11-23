@@ -1,0 +1,41 @@
+.footer {
+    @include flex(column, center, center);
+    gap: 80px;
+
+    width: 100%;
+    padding: 80px 16px;
+    border-top: 5px solid $light;
+    box-sizing: border-box;
+    background-color: $secondary;
+
+    @media(max-width: $mp4){
+        padding: 32px 16px;
+        gap: 32px;
+    }
+
+    &__nav{
+
+        &>ul{
+            @include flex(row, center, center);
+            column-gap: 32px;
+            row-gap: 16px;
+            flex-wrap: wrap;
+
+            &>li{
+                &>a{
+                    font-size: 16px;
+                    font-weight: 300;
+                    text-align: center;
+                    color: $light;
+                    @include transition(0.3s);
+
+                    @media(any-hover: hover){
+                        &:hover{
+                            color: $primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

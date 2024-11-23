@@ -1,0 +1,21 @@
+/* Mixin for flexbox styles */
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+/* Mixin for :hover */
+@mixin transition ($seconds) {
+  -webkit-transition: all $seconds ease-out;
+  -moz-transition: all $seconds ease-out;
+  -o-transition: all $seconds ease-out;
+  transition: all $seconds ease-out;
+}
+
+@mixin text-gradient($gradient){
+  background: $gradient;
+  color: transparent;
+  -webkit-background-clip: text;
+}
