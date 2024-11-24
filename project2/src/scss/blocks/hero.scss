@@ -44,6 +44,10 @@
         &_info {
             width: 100%;
 
+            &>.title-small{
+                font-weight: 300;
+            }
+
             &>.btn {
                 margin-top: 30px;
             }
